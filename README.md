@@ -1,6 +1,6 @@
 # ACARS & VDL Mode 2 Message Decoder
 
-A Claude skill that decodes ACARS, VDL Mode 2, and CPDLC messages into a clear, field-by-field breakdown.
+An Agent Skill that decodes ACARS, VDL Mode 2, and CPDLC messages into a clear, field-by-field breakdown.
 
 ## Overview
 
@@ -10,19 +10,11 @@ Paste one in, from any receiver or decoder, and the skill names the message type
 
 ## Installation
 
-An Agent Skill is a plain-Markdown format: a `SKILL.md` file (decode instructions plus a short YAML header) and optional reference files. The format was introduced by Anthropic, but it is not Claude-specific. Nothing in this skill calls a model-specific feature; it is instructions and decode tables, so any agent or harness that loads `SKILL.md` skills can use it.
+An Agent Skill is a plain-Markdown format: a `SKILL.md` file (decode instructions plus a short YAML header) and optional reference files. It is not tied to any one tool. Nothing in this skill calls a model-specific feature; it is instructions and decode tables, so any agent or harness that loads `SKILL.md` skills can use it.
 
-To install, download or clone this repository and place the `acars-decode/` folder in the skills directory your agent reads. The path depends on the tool:
+To install, download or clone this repository and place the `acars-decode/` folder in the skills directory your agent reads. The exact path depends on the tool. Cursor, for example, uses `.cursor/skills/acars-decode/`; other tools use their own skills directory, and the folder contents are identical in every case. Consult your tool's documentation for where it looks for skills. `SKILL.md` has to sit at the top level of the `acars-decode/` folder, not nested deeper (`skills/acars-decode/SKILL.md`, not `skills/acars-decode/something/SKILL.md`). One folder too many is the usual install mistake.
 
-```
-~/.claude/skills/acars-decode/     Claude Code / Claude Desktop, personal (all projects)
-.claude/skills/acars-decode/       Claude Code, project-scoped (committed to a repo)
-.cursor/skills/acars-decode/       Cursor, project-scoped
-```
-
-Other tools that support the format use their own skills directory; the folder contents are identical in every case. `SKILL.md` has to sit at the top level of the `acars-decode/` folder, not nested deeper (`skills/acars-decode/SKILL.md`, not `skills/acars-decode/something/SKILL.md`). One folder too many is the usual install mistake.
-
-Once the folder is in place, the agent loads the skill on its own when a message matches the description, with nothing to invoke manually. For the Claude implementation specifically, the [Claude Code skills documentation](https://code.claude.com/docs/en/skills) covers the full model.
+Once the folder is in place, the agent loads the skill on its own when a message matches the description, with nothing to invoke manually.
 
 ## Activation
 
